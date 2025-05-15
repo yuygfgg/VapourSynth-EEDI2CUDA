@@ -63,9 +63,8 @@ jobs:
         path: ${{ env.CUDA_PATH }}
         key: ${{ runner.os }}-cuda
     - name: Setup CUDA
-      uses: Jimver/cuda-toolkit@v0.2.4
+      uses: Jimver/cuda-toolkit@v0.2.23
       with:
-        cuda: 11.2.2
         sub-packages: '["nvcc", "cudart"]'
       if: steps.cache-cuda.outputs.cache-hit != 'true'
     - name: Setup MSVC
@@ -109,9 +108,7 @@ jobs:
     - name: Expand Boost
       run:  unzip boost.zip
     - name: Setup CUDA
-      uses: Jimver/cuda-toolkit@v0.2.4
-      with:
-        cuda: 11.2.2
+      uses: Jimver/cuda-toolkit@v0.2.23
     - name: Configure
       run: |
         mkdir build
