@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   fetch-boost:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Cache Boost
       id: cache-boost
@@ -95,7 +95,7 @@ jobs:
         files: build/EEDI2CUDA-win64.zip
         draft: true
   build-linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: fetch-boost
     steps:
     - name: Checkout repo
