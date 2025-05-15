@@ -28,7 +28,7 @@ jobs:
       run: zip -r9 boost.zip boost
       if: steps.cache-boost.outputs.cache-hit != 'true'
     - name: Upload
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: dep-boost
         path: boost.zip
@@ -58,7 +58,7 @@ jobs:
       shell: pwsh
     - name: Cache CUDA
       id: cache-cuda
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ${{ env.CUDA_PATH }}
         key: ${{ runner.os }}-cuda
@@ -84,7 +84,7 @@ jobs:
       working-directory: build
       shell: pwsh
     - name: Upload
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: EEDI2CUDA
         path: build/EEDI2CUDA.dll
@@ -123,7 +123,7 @@ jobs:
       run: strip -s libEEDI2CUDA.so
       working-directory: build
     - name: Upload
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: EEDI2CUDA
         path: build/libEEDI2CUDA.so
